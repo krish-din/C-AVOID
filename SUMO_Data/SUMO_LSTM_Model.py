@@ -30,7 +30,7 @@ df_Filtered = df_Filtered[df_Filtered["veh_id"].isin(validVehicles)]
 uniqueVehicles = df_Filtered.veh_id.unique()
 
 # %% implementing rolling window for each vehicle
-def prepareData(data, n_lags, n_seq, initial):
+def prepareData(data, n_lags, n_seq):
     X = []
     y = []
     numHorizon = round(n_seq * framePerSecond)
@@ -144,7 +144,7 @@ for vehID, df in groupData:
     curVehData.sort_values("time", inplace=True)
     curVehData.reset_index(drop=True, inplace=True)
     curVehData.drop("time", axis=1, inplace=True)
-    x, y = prepareData(curVehData, (numLagsPoints / framePerSecond), (numHorizon / framePerSecond), False)
+    x, y = prepareData(curVehData, (numLagsPoints / framePerSecond), (numHorizon / framePerSecond))
 
     if len(y):
         inputData.append(x)
