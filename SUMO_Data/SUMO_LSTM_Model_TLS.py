@@ -241,8 +241,6 @@ K.clear_session()
 # %%
 class timecallback(callback.Callback):
     def __init__(self):
-        self.times = []
-        # use this value as reference to calculate cummulative time taken
         self.totalTime = time.perf_counter()
         self.timetaken = time.perf_counter()
 
