@@ -233,7 +233,6 @@ K.clear_session()
 class timecallback(callback.Callback):
     def __init__(self):
         self.times = []
-        # use this value as reference to calculate cummulative time taken
         self.totalTime = time.perf_counter()
         self.timetaken = time.perf_counter()
 
@@ -255,8 +254,6 @@ class lstmModel():
         pass
 
     def build_EncoderModel(self, train_x, train_y, val_X, val_Y, learningRate, hiddenLayers, batchSize):
-        # prepare data
-        # define parameters
         timetaken = timecallback()
         self.keras_callbacks = [
             EarlyStopping(monitor='val_loss', min_delta=1e-3, patience=2, verbose=0, ),
