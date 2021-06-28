@@ -212,7 +212,6 @@ K.clear_session()
 # %%
 class timecallback(callback.Callback):
     def __init__(self):
-        self.times = []
         self.totalTime = time.perf_counter()
         self.timetaken = time.perf_counter()
 
