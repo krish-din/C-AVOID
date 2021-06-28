@@ -207,7 +207,6 @@ K.clear_session()
 class timecallback(callback.Callback):
     def __init__(self):
         self.times = []
-        # use this value as reference to calculate cummulative time taken
         self.totalTime = time.perf_counter()
         self.timetaken = time.perf_counter()
 
@@ -224,7 +223,7 @@ class timecallback(callback.Callback):
         self.timetaken = time.perf_counter()
 
 
-# %% ds
+# %% model definition
 class lstmModel():
     def __init__(self):
         pass
@@ -272,7 +271,7 @@ encoderModels["{}-{}-{}".format(hiddenLayer, learningRate, batchSize)] = lstm.bu
                                                                                                  hiddenLayer, batchSize,
                                                                                                  )
 encoderModels["{}-{}-{}".format(hiddenLayer, learningRate, batchSize)].save(
-    "./savedModels/encoder_UAVData_NWSplit4_3-3_{}-{}-{}.h5".format(hiddenLayer, learningRate, batchSize))
+    "./savedModels/encoder_UAVData_3-3_{}-{}-{}.h5".format(hiddenLayer, learningRate, batchSize))
 # %%
 predictedModelsOutputEncoder = {}
 predictedModelsStraightEncoder = {}
